@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState , useEffect} from 'react';
-import {Box, TextField, Container, Paper, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, alignItems} from '@mui/material';
+import {Box, TextField, Container, Paper, FormControl, InputLabel, OutlinedInput, InputAdornment, Button} from '@mui/material';
 
 export default function Calculation() {
     const paperStyle={padding: '50px 20px', width:600,margin:"20px auto"}
@@ -10,6 +10,7 @@ export default function Calculation() {
     const[annualLoanTime,setAnnualLoanTime] = useState('')
 
     const[calculation,setCalculation] = useState([])
+    const[example, setExample] = useState([])
 
     const handleClick=(e)=>{
         e.preventDefault()
@@ -31,6 +32,14 @@ export default function Calculation() {
         .then((result) => {
             setCalculation(result)
         })
+    },[])
+
+    useEffect(() => {
+      fetch("http://localhost:8080/calculation/examples")
+      .then(res=>res.json())
+      .then((result) => {
+          setExample(result)
+      })
     },[])
 
 
@@ -82,11 +91,18 @@ export default function Calculation() {
     <Paper elevation={3} style={paperStyle}>
         {calculation.map(calculation=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={calculation.id}>
-                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment.toFixed(2)} € each month
+                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment.toFixed(2)} € each month
+            </Paper>
+        ))}
+    </Paper>
+    <h2><i><u>Calculation Examples</u></i></h2>
+    <Paper elevation={3} style={paperStyle}>
+        {example.map(example=>(
+            <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={example.id}>
+                Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years <br/> and pay {example.monthlyPayment.toFixed(2)} € each month
             </Paper>
         ))}
     </Paper>
     </Container>
   );
 }
-
