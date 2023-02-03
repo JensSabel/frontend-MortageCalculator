@@ -89,7 +89,7 @@ export default function Calculation() {
     </Paper>
     <h1><i>Calculation History</i></h1>
     <Paper elevation={3} style={paperStyle}>
-        {calculation.map(calculation=>(
+        {calculation.slice(0).reverse().map(calculation=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={calculation.id}>
                 Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment.toFixed(2)} € each month
             </Paper>
@@ -97,7 +97,7 @@ export default function Calculation() {
     </Paper>
     <h2><i><u>Calculation Examples</u></i></h2>
     <Paper elevation={3} style={paperStyle}>
-        {example.map(example=>(
+        {example.slice(0).reverse().map(example=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={example.id}>
                 Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years <br/> and pay {example.monthlyPayment.toFixed(2)} € each month
             </Paper>
