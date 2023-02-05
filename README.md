@@ -5,13 +5,15 @@ First, make sure you have my backend running before starting this application. T
 Continue with the instructions below after successfully starting the backend:
 
 This project was bootstrapped with the Create React App
-To run the frontend, simply use the following command:
+To run the frontend, you first need to install the node_modules file using the following command:
+
+    $ npm install
+
+After that, simply run the followin command to start the front end application:
 
     $ npm start
 
-If you run in to an issue with permissions, try to delete the 'node_module' file and run the following command before running the application again:
-
-    $ npm install
+Application starts running on http://localhost:3000
  
 # What the frontend does
 
