@@ -46,7 +46,7 @@ export default function Calculation() {
   return (
 
     <Container>
-        <Paper elevation={3} style={paperStyle}>
+        <Paper elevation={5} style={paperStyle}>
         <h1><u>Mortage Calculator</u></h1>
     <Box
       component="form"
@@ -88,18 +88,19 @@ export default function Calculation() {
     </Box>
     </Paper>
     <h1><i>Calculation History</i></h1>
-    <Paper elevation={3} style={paperStyle}>
+    <Paper elevation={3} style={paperStyle} fullWidth sx={{m:1}}>
         {calculation.slice(0).reverse().map(calculation=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={calculation.id}>
-                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment.toFixed(2)} € each month
+                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment} € each month
             </Paper>
         ))}
     </Paper>
     <h2><i><u>Calculation Examples</u></i></h2>
-    <Paper elevation={3} style={paperStyle}>
+    <Paper elevation={3} style={paperStyle} fullWidth sx={{m:1}}>
+      <h3>A few example calculations already calculated</h3>
         {example.slice(0).reverse().map(example=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={example.id}>
-                Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years <br/> and pay {example.monthlyPayment.toFixed(2)} € each month
+                Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years <br/> and pay {example.monthlyPayment} € each month
             </Paper>
         ))}
     </Paper>
