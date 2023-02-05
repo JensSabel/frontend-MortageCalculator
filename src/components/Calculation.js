@@ -67,7 +67,7 @@ export default function Calculation() {
           />
         </FormControl>
         <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Enter Annual Interest </InputLabel>
+          <InputLabel htmlFor="outlined-adornment-amount">Enter Annual Interest</InputLabel>
           <OutlinedInput
             id="outlined-adornment-amount"
             startAdornment={<InputAdornment position="start">%</InputAdornment>}
@@ -92,7 +92,7 @@ export default function Calculation() {
     <Paper elevation={3} style={paperStyle} fullWidth sx={{m:1}}>
         {calculation.slice(0).reverse().map(calculation=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={calculation.id}>
-                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years <br/> and pay {calculation.monthlyPayment} € each month
+                Prospect {calculation.id}: {calculation.userName} wants to borrow {calculation.totalLoan} € for a period of {calculation.annualLoanTime} years and pay {calculation.monthlyPayment} € each month
             </Paper>
         ))}
     </Paper>
@@ -101,7 +101,7 @@ export default function Calculation() {
       <h3>A few example calculations already calculated</h3>
         {example.slice(0).reverse().map(example=>(
             <Paper elevation={6} style={{margin:"10px",padding:"15px",textAlign:"center"}} key={example.id}>
-                Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years <br/> and pay {example.monthlyPayment} € each month
+                Prospect {example.id}: {example.userName} wants to borrow {example.totalLoan} € for a period of {example.annualLoanTime} years and pay {example.monthlyPayment} € each month
             </Paper>
         ))}
     </Paper>
