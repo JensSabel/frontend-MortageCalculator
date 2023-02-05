@@ -12,11 +12,12 @@ export default function Calculation() {
     const[calculation,setCalculation] = useState([])
     const[example, setExample] = useState([])
 
+    // This code also replaces , with . in case the user enters the interest with a comma, also removes spaces from the loan amount if user enters the amount with spaces.
     const handleClick=(e)=>{
         e.preventDefault()
         const calculation={userName,totalLoan,annualInterest,annualLoanTime}
         console.log(calculation)
-        fetch(`http://localhost:8080/calculation/add?userName=${userName}&totalLoan=${totalLoan}&annualInterest=${annualInterest}&annualLoanTime=${annualLoanTime}`,{
+        fetch(`http://localhost:8080/calculation/add?userName=${userName}&totalLoan=${totalLoan.replace(" ","")}&annualInterest=${annualInterest.replace(",",".")}&annualLoanTime=${annualLoanTime}`,{
         method:"POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(calculation)
@@ -66,7 +67,7 @@ export default function Calculation() {
           />
         </FormControl>
         <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Enter Annual Interest</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-amount">Enter Annual Interest </InputLabel>
           <OutlinedInput
             id="outlined-adornment-amount"
             startAdornment={<InputAdornment position="start">%</InputAdornment>}
